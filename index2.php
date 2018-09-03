@@ -21,11 +21,12 @@
                 echo "すでにそのメールアドレスは使用されています。";
             } else {
                 // 未使用の場合の処理を記述
-                $query = "INSERT INTO 'users' ('email','password') VALUES ('".mysqli_real_escape_string($link,$_POST['email'])."','".mysql_real_escape_string($link,$_POST['password'])."')";
+                $query = "INSERT INTO 'users' ('email','password') VALUES ('".mysqli_real_escape_string($link,$_POST['email'])."','".mysqli_real_escape_string($link,$_POST['password'])."')";
                 if(mysqli_query($link,$query)){
                     echo "登録されました";
-                }else {
+                } else {
                     echo "登録に失敗しました";
+                    print_r($result);
                 }
             }
         }
